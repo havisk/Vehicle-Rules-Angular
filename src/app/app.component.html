@@ -1,20 +1,97 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{title}}!
-  </h1>
-  <img width="300" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxOS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCAyNTAgMjUwIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAyNTAgMjUwOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPg0KCS5zdDB7ZmlsbDojREQwMDMxO30NCgkuc3Qxe2ZpbGw6I0MzMDAyRjt9DQoJLnN0MntmaWxsOiNGRkZGRkY7fQ0KPC9zdHlsZT4NCjxnPg0KCTxwb2x5Z29uIGNsYXNzPSJzdDAiIHBvaW50cz0iMTI1LDMwIDEyNSwzMCAxMjUsMzAgMzEuOSw2My4yIDQ2LjEsMTg2LjMgMTI1LDIzMCAxMjUsMjMwIDEyNSwyMzAgMjAzLjksMTg2LjMgMjE4LjEsNjMuMiAJIi8+DQoJPHBvbHlnb24gY2xhc3M9InN0MSIgcG9pbnRzPSIxMjUsMzAgMTI1LDUyLjIgMTI1LDUyLjEgMTI1LDE1My40IDEyNSwxNTMuNCAxMjUsMjMwIDEyNSwyMzAgMjAzLjksMTg2LjMgMjE4LjEsNjMuMiAxMjUsMzAgCSIvPg0KCTxwYXRoIGNsYXNzPSJzdDIiIGQ9Ik0xMjUsNTIuMUw2Ni44LDE4Mi42aDBoMjEuN2gwbDExLjctMjkuMmg0OS40bDExLjcsMjkuMmgwaDIxLjdoMEwxMjUsNTIuMUwxMjUsNTIuMUwxMjUsNTIuMUwxMjUsNTIuMQ0KCQlMMTI1LDUyLjF6IE0xNDIsMTM1LjRIMTA4bDE3LTQwLjlMMTQyLDEzNS40eiIvPg0KPC9nPg0KPC9zdmc+DQo=">
+<!------------------Top Bar------------------------------------->
+<div class="top-bar header grid-container">
+  <div class="top-bar-left">
+    <h3>Vehicle Rules</h3>
+  </div>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" href="https://blog.angular.io//">Angular blog</a></h2>
-  </li>
-</ul>
+
+<!-------------------Filter Inputs--------------------------------->
+<div class="grid-container">
+    <div class="slds-form slds-form_stacked">
+      <div class="slds-form-element float-left" style="width: 40%; margin-right: 10px;">
+        <label class="slds-form-element__label" for="text-input-id-1">Rule Filter</label>
+        <input type="text" id="text-input-id-1" class="slds-input" placeholder="Enter Vehicle Rule"
+               [(ngModel)]="ruleInput">
+      </div>
+      <div class="slds-form-element float-right" style="width: 40%;" >
+        <label class="slds-form-element__label" for="text-input-id-2">Region Filter</label>
+        <input type="text" id="text-input-id-2" class="slds-input" placeholder="Enter Region"
+               [(ngModel)]="regionInput">
+      </div>
+    </div>
+  <hr>
+</div>
+<!---------------------Progress Bar------------------------------->
+<div class=" success progress grid-container" role="progressbar" data-overlay="true"
+     [ngStyle]="{display: setDisplay()}"
+     tabindex="0" aria-valuenow="20" aria-valuemin="0"
+     aria-valuetext="75 percent" aria-valuemax="100">
+            <span class="progress-meter" style="width: 75%">
+              <p class="progress-meter-text">75%</p>
+            </span>
+</div>
+
+<!--------------------- Table------------------------------->
+
+<div class="grid-container">
+  <div class="grid-x grid-padding">
+    <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+      <thead>
+      <tr class="slds-text-title_caps header">
+        <th scope="col">
+          <div class="slds-truncate" title="Activation">Action</div>
+        </th>
+        <th scope="col">
+          <div class="slds-truncate" title="Status">Status</div>
+        </th>
+        <th scope="col">
+          <div class="slds-truncate" title="Vehicle Rule">Vehicle Rule</div>
+        </th>
+        <th scope="col">
+          <div class="slds-truncate" title="Region">Region</div>
+        </th>
+        <th scope="col">
+          <div class="slds-truncate" title="Created By">Created By</div>
+        </th>
+        <th scope="col">
+          <div class="slds-truncate" title="Created Date">Created Date</div>
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <!--iterate trough date to create table two pipe filters for vehicle rule and region search-->
+      <tr  class="hover" *ngFor="let data of data | ruleFilter: ruleInput: 'vehicleRule'| regionFilter:regionInput: 'region'">
+        <td>
+          <button class=" shape" (click)="toggleStatus(data.status)"
+                     [name]="toggleOn(data.status)">{{name}}</button>
+        </td>
+        <td>{{data.status}}</td>
+        <td>{{data.vehicleRule}}</td>
+        <td>{{data.region}}</td>
+        <td>{{data.createdBy}}</td>
+        <td>{{data.createdDate}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="grid-container">
+  <button class="button warning large " data-open="refreshModal"
+          (click)="refreshData()">Refresh Data</button>
+</div>
+
+<!-------------------Status Modal------------------------------------->
+<div class="tiny reveal text-center" id="statusModal" data-reveal data-overlay="false">
+  <h5>{{message}}</h5>
+  <button class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<!-------------------Refresh Modal------------------------------------->
+<div class="tiny reveal grid-container text-center" id="refreshModal" data-reveal data-overlay="false">
+  <h5>Loading....</h5>
+</div>
+
 
