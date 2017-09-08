@@ -68,11 +68,7 @@ export class AppComponent implements OnInit {
 
   // put name on button
   toggleOn(status) {
-    if (status === 'Active') {
-      this.name = 'Turn Off';
-    } else {
-      this.name = 'Turn On';
-    }
+    return status === 'Active' ? this.name = 'Turn Off' : this.name = 'Turn On';
   }
 }
 

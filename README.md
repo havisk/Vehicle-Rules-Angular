@@ -1,5 +1,11 @@
 # NewRules
 
+Data is hard coded.  Button, and link (Turn on & Turn Off) simulate action.  Inputs filters data.
+
+# Link to deployed page
+
+http://vehiclerules.surge.sh/
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.1.
 
 ## Install dependencies
